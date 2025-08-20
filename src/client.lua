@@ -1,13 +1,13 @@
-vx.registerNetEvent("cx_carwipe:startCarwipe", function ()
+function clientEventBridge.startCarwipe()
     vx.notify({
         title = "Carwipe",
         message = "Carwipe in 60 seconds!",
         type = "info"
     })
 
-    Citizen.SetTimeout(Config.carwipeInterval * 1000, function ()
+    Citizen.SetTimeout(Config.carwipeInterval * 1000, function()
         local count = 0
-        
+
         for vehicle in EnumerateVehicles() do
             if not IsPedAPlayer(GetPedInVehicleSeat(vehicle, -1)) then
                 DeleteVehicle(vehicle)
@@ -21,7 +21,7 @@ vx.registerNetEvent("cx_carwipe:startCarwipe", function ()
             type = "success"
         })
     end)
-end)
+end
 
 local entityEnumerator = {
     __gc = function(enum)
