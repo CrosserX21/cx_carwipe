@@ -4,6 +4,7 @@ lua54 "yes"
 
 shared_scripts {
     "@vx_lib/init.lua",
+    "src/shared.lua",
     "config.lua"
 }
 
